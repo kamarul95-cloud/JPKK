@@ -178,7 +178,7 @@
         <td>PENGKALANG ARANG</td>
       </tr>
       <tr data-cawangan="PENGKALANG ARANG">
-        <td>Encik Syed Faris Bin Ahmad</td>
+        <td>Encik Syed Bin Ali</td>
         <td>Timbalan Pengerusi</td>
         <td>0198833445</td>
         <td>PENGKALANG ARANG</td>
@@ -190,7 +190,9 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready(function () {
-      var table = $('#data-table').DataTable();
+      var table = $('#data-table').DataTable({
+        "pageLength": 50  // Set default entries per page to 50
+      });
 
       // Filter rows based on the selected cawangan
       $('#cawangan').on('change', function () {
