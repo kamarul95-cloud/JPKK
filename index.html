@@ -3,7 +3,6 @@
 <head>
   <!-- Meta tag untuk thumbnail / gambar logo -->
   <meta property="og:image" content="https://i.ibb.co/VQfPDdN/Hj-Din.png" />
-  <!-- Gambar akan muncul sebagai thumbnail semasa perkongsian di media sosial -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Senarai JPKK</title>
@@ -25,12 +24,12 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      filter: blur(5px); /* Menambah kesan kabur pada latar belakang */
-      z-index: -1; /* Memastikan latar belakang di belakang kandungan lain */
+      filter: blur(5px);
+      z-index: -1;
     }
     table {
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan opacity */
+      background-color: rgba(255, 255, 255, 0.9);
     }
     h2 {
       font-family: 'Brush Script MT', cursive;
@@ -39,7 +38,7 @@
       text-align: center;
       margin-top: 20px;
       font-weight: bold;
-      text-shadow: 1px 1px 2px black; /* Stroke putih untuk teks */
+      text-shadow: 1px 1px 2px black;
     }
     .dataTables_filter input {
       width: 300px;
@@ -52,15 +51,14 @@
     .dataTables_info,
     .dataTables_paginate a {
       font-weight: bold;
-      text-shadow: 1px 1px 2px white; /* Stroke putih untuk teks */
+      text-shadow: 1px 1px 2px white;
     }
   </style>
 </head>
 <body>
-  <div class="background"></div> <!-- Latar belakang kabur -->
+  <div class="background"></div>
   <h2>Jawantakuasa Pembangunan dan Keselamatan Kampung (JPKK)</h2>
 
-  <!-- Dropdown Pilihan Cawangan -->
   <label for="cawangan">Pilih Cawangan:</label>
   <select id="cawangan">
     <option value="">Pilih Cawangan</option>
@@ -90,7 +88,6 @@
     <option value="GONG SENTUL">GONG SENTUL</option>
   </select>
 
-  <!-- Jadual Data -->
   <table id="data-table" class="display">
     <thead>
       <tr>
@@ -128,7 +125,6 @@
     </tbody>
   </table>
 
-  <!-- Tambah jQuery dan DataTables.js -->
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script>
@@ -149,7 +145,14 @@
           }
         });
       });
+
+      fetch('https://script.google.com/macros/s/AKfycbxa5d_1wQ592iE0l3n30SmTKvDDhFxbMglx5WkCgfZAMAIAPdVhOrVPYIEITkZexQhXlA/exec')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data); // Data yang diterima akan dicetak di sini
+        });
     });
   </script>
+
 </body>
 </html>
