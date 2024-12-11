@@ -1,75 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JPKK Data</title>
-  <!-- Tambah CSS DataTables -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    table {
-      width: 100%;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPKK Data</title>
+  <!-- Tambah CSS DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.ibb.co/VQfPDdN/Hj-Din.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    table {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan opacity */
+    }
+    h2 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 3.5em;
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black; /* Stroke putih untuk teks */
+    }
+    .dataTables_filter input {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+    .dataTables_wrapper {
+      padding: 10px;
+    }
+    .dataTables_length label,
+    .dataTables_info,
+    .dataTables_paginate a {
+      font-weight: bold;
+      text-shadow: 1px 1px 2px white; /* Stroke putih untuk teks */
+    }
+  </style>
 </head>
 <body>
-  <h2>Jawantakuasa Pembangunan dan Keselamatan Kampung (JPKK)</h2>
+  <h2>Jawantakuasa Pembangunan dan Keselamatan Kampung (JPKK)</h2>
 
+  <!-- Dropdown Pilihan Cawangan -->
+  <label for="cawangan">Pilih Cawangan:</label>
+  <select id="cawangan">
+    <option value="">Pilih Cawangan</option>
+    <option value="BATU ENAM/BANGGOL AIR LILIH">BATU ENAM/BANGGOL AIR LILIH</option>
+    <option value="PAYA LIMA AMAS">PAYA LIMA AMAS</option>
+    <option value="TUAN MANDAK">TUAN MANDAK</option>
+    <option value="PENGKALANG ARANG">PENGKALANG ARANG</option>
+    <option value="TEBAUK">TEBAUK</option>
+    <option value="PAK KATAK">PAK KATAK</option>
+    <option value="TMN DESA JAYA">TMN DESA JAYA</option>
+    <option value="BUKIT TUNGGAL">BUKIT TUNGGAL</option>
+    <option value="TAMAN BUKIT DATU">TAMAN BUKIT DATU</option>
+    <option value="BUKIT KANDIS">BUKIT KANDIS</option>
+    <option value="BUKIT DATU">BUKIT DATU</option>
+    <option value="SEB TUAN CHIK">SEB TUAN CHIK</option>
+    <option value="BUKIT TOK RIS">BUKIT TOK RIS</option>
+    <option value="SERDANG BARU">SERDANG BARU</option>
+    <option value="PAKR BUKIT TUNGGAL">PAKR BUKIT TUNGGAL</option>
+    <option value="PULAU KETAM">PULAU KETAM</option>
+    <option value="PULAU SEKATI">PULAU SEKATI</option>
+    <option value="DUYUNG BESAR">DUYUNG BESAR</option>
+    <option value="DUYUNG WAN SU">DUYUNG WAN SU</option>
+    <option value="KELAB AYA">KELAB AYA</option>
+    <option value="BUKIT TUMBUH">BUKIT TUMBUH</option>
+    <option value="BANGGOL PAUH">BANGGOL PAUH</option>
+    <option value="GONG KIJANG">GONG KIJANG</option>
+    <option value="GONG SENTUL">GONG SENTUL</option>
+  </select>
 
-  <!-- Dropdown Pilihan -->
-  <label for="daerah">Pilih Daerah:</label>
-  <select id="daerah">
-    <option value="kuala-nerus">Kuala Nerus</option>
-    <option value="kuala-terengganu">Kuala Terengganu</option>
-  </select>
-  
-  <label for="mukim">Pilih Mukim:</label>
-  <select id="mukim">
-    <option value="bukit-tunggal">Bukit Tunggal</option>
-    <option value="seberang-takir">Seberang Takir</option>
-  </select>
+  <!-- Jadual Data -->
+  <table id="data-table" class="display">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Jawatan</th>
+        <th>No. Telefon</th>
+        <th>Cawangan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data contoh untuk setiap cawangan, setiap cawangan ada 4 orang -->
+      <tr data-cawangan="BATU ENAM/BANGGOL AIR LILIH">
+        <td>Encik Wan Nasiruddin Bin Wan Mohammad</td>
+        <td>Setiausaha</td>
+        <td>0198885079</td>
+        <td>BATU ENAM/BANGGOL AIR LILIH</td>
+      </tr>
+      <tr data-cawangan="BATU ENAM/BANGGOL AIR LILIH">
+        <td>Encik Akmal Bin Salleh</td>
+        <td>Bendahari</td>
+        <td>0199446013</td>
+        <td>BATU ENAM/BANGGOL AIR LILIH</td>
+      </tr>
+      <tr data-cawangan="BATU ENAM/BANGGOL AIR LILIH">
+        <td>Encik Bukhari Bin Embong</td>
+        <td>Pengerusi</td>
+        <td>0199570032</td>
+        <td>BATU ENAM/BANGGOL AIR LILIH</td>
+      </tr>
+      <tr data-cawangan="BATU ENAM/BANGGOL AIR LILIH">
+        <td>Encik Kamarul Bin Kari</td>
+        <td>Timbalan Pengerusi</td>
+        <td>0198123456</td>
+        <td>BATU ENAM/BANGGOL AIR LILIH</td>
+      </tr>
+      <!-- Data contoh untuk cawangan lain akan ditambah dengan cara yang sama -->
+    </tbody>
+  </table>
 
+  <!-- Tambah jQuery dan DataTables.js -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var table = $('#data-table').DataTable();
 
-  <!-- Jadual Data -->
-  <table id="data-table" class="display">
-    <thead>
-      <tr>
-        <th>Nama</th>
-        <th>Jawatan</th>
-        <th>No. Telefon</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Encik Muda Bin Salleh</td>
-        <td>Pengerusi</td>
-        <td>0198885079</td>
-      </tr>
-      <tr>
-        <td>Encik Bukhari Bin Embong</td>
-        <td>Timbalan Pengerusi</td>
-        <td>0199446013</td>
-      </tr>
-      <tr>
-        <td>Encik Wan Muhammad Nasiruddin</td>
-        <td>Setiausaha</td>
-        <td>0199570032</td>
-      </tr>
-    </tbody>
-  </table>
+      // Fungsi penapisan berdasarkan pilihan cawangan
+      $('#cawangan').on('change', function() {
+        var cawangan = $('#cawangan').val();
 
+        // Menyembunyikan atau memaparkan baris berdasarkan penapisan cawangan
+        table.rows().every(function() {
+          var data = this.node();
+          var rowCawangan = $(data).data('cawangan');
 
-  <!-- Tambah jQuery dan DataTables.js -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#data-table').DataTable();
-    });
-  </script>
+          if (cawangan === '' || cawangan === rowCawangan) {
+            $(data).show();
+          } else {
+            $(data).hide();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
