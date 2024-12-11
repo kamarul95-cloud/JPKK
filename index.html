@@ -111,9 +111,12 @@
  <script>
   $(document).ready(function() {
     var table = $('#data-table').DataTable({
-      "pageLength": 50,  
-      "lengthMenu": [50, 100, 150]  
+      "pageLength": 50,
+      "lengthMenu": [50, 100, 150]
     });
+
+    // Initially show all rows
+    table.rows().show();
 
     $('#cawangan').on('change', function() {
       var selectedCawangan = $(this).val();
