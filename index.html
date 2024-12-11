@@ -209,23 +209,26 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script>
     $(document).ready(function() {
-      var table = $('#data-table').DataTable();
+  var table = $('#data-table').DataTable({
+  "pageLength": 50,  // Tetapkan kepada jumlah entri yang lebih tinggi, contohnya 25
+  "lengthMenu": [50, 100, 150]  // Pilihan jumlah entri
+});
 
-      $('#cawangan').on('change', function() {
-        var cawangan = $('#cawangan').val();
+$('#cawangan').on('change', function() {
+  var cawangan = $('#cawangan').val();
 
-        table.rows().every(function() {
-          var data = this.node();
-          var rowCawangan = $(data).data('cawangan');
+  table.rows().every(function() {
+    var data = this.node();
+    var rowCawangan = $(data).data('cawangan');
 
-          if (cawangan === '' || cawangan === rowCawangan) {
-            $(data).show();
-          } else {
-            $(data).hide();
-          }
-        });
-      });
-    });
+    if (cawangan === '' || cawangan === rowCawangan) {
+      $(data).show();
+    } else {
+      $(data).hide();
+    }
+  });
+});
+
   </script>
 </body>
 </html>
