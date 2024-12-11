@@ -108,32 +108,26 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
- <script>
+<script>
   $(document).ready(function() {
     var table = $('#data-table').DataTable({
       "pageLength": 50,
       "lengthMenu": [50, 100, 150]
     });
 
-    // Initially show all rows
-    table.rows().show();
-
     $('#cawangan').on('change', function() {
       var selectedCawangan = $(this).val();
 
-      // Show all rows if no cawangan is selected
-      if (selectedCawangan === '') {
-        table.rows().show();
-      } else {
-        table.rows().every(function() {
-          var rowCawangan = $(this.node()).data('cawangan');
-          if (rowCawangan === selectedCawangan) {
-            $(this.node()).show();
-          } else {
-            $(this.node()).hide();
-          }
-        });
-      }
+      table.rows().every(function() {
+        var rowCawangan = $(this.node()).data('cawangan');
+        
+        // Show the row if it matches the selected cawangan, otherwise hide it
+        if (selectedCawangan === '' || rowCawangan === selectedCawangan) {
+          $(this.node()).show();
+        } else {
+          $(this.node()).hide();
+        }
+      });
     });
   });
 </script>
