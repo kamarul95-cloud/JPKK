@@ -108,28 +108,29 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      var table = $('#data-table').DataTable({
-        "pageLength": 50,  // Set default number of entries
-        "lengthMenu": [50, 100, 150]  // Options for the number of entries
-      });
+ <script>
+  $(document).ready(function() {
+    var table = $('#data-table').DataTable({
+      "pageLength": 50,  
+      "lengthMenu": [50, 100, 150]  
+    });
 
-      $('#cawangan').on('change', function() {
-        var selectedCawangan = $(this).val();
+    $('#cawangan').on('change', function() {
+      var selectedCawangan = $(this).val();
 
+      // Show all rows if no cawangan is selected
+      if (selectedCawangan === '') {
+        table.rows().show();
+      } else {
         table.rows().every(function() {
-          var rowData = this.node();
-          var rowCawangan = $(rowData).data('cawangan');
-
-          if (selectedCawangan === '' || selectedCawangan === rowCawangan) {
-            $(rowData).show();
+          var rowCawangan = $(this.node()).data('cawangan');
+          if (rowCawangan === selectedCawangan) {
+            $(this.node()).show();
           } else {
-            $(rowData).hide();
+            $(this.node()).hide();
           }
         });
-      });
+      }
     });
-  </script>
-</body>
-</html>
+  });
+</script>
