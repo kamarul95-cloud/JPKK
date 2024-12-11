@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JPKK Data</title>
+  <!-- Tambah CSS DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Jawantakuasa Pembangunan dan Keselamatan Kampung (JPKK)</h2>
+
+
+  <!-- Dropdown Pilihan -->
+  <label for="daerah">Pilih Daerah:</label>
+  <select id="daerah">
+    <option value="kuala-nerus">Kuala Nerus</option>
+    <option value="kuala-terengganu">Kuala Terengganu</option>
+  </select>
+  
+  <label for="mukim">Pilih Mukim:</label>
+  <select id="mukim">
+    <option value="bukit-tunggal">Bukit Tunggal</option>
+    <option value="seberang-takir">Seberang Takir</option>
+  </select>
+
+
+  <!-- Jadual Data -->
+  <table id="data-table" class="display">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Jawatan</th>
+        <th>No. Telefon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Encik Muda Bin Salleh</td>
+        <td>Pengerusi</td>
+        <td>0198885079</td>
+      </tr>
+      <tr>
+        <td>Encik Bukhari Bin Embong</td>
+        <td>Timbalan Pengerusi</td>
+        <td>0199446013</td>
+      </tr>
+      <tr>
+        <td>Encik Wan Muhammad Nasiruddin</td>
+        <td>Setiausaha</td>
+        <td>0199570032</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Tambah jQuery dan DataTables.js -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#data-table').DataTable();
+    });
+  </script>
+</body>
+</html>
